@@ -15,24 +15,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-    }
-
+    // if the checkbox get's clicked
     public void checkClicked(View v){
         CheckBox checkbox = (CheckBox) v;
+
+        // convert the text to string
         String text = checkbox.getText().toString();
         Log.d("potato", "checkClicked: ");
 
+        // if the checkbox is checked
         if(checkbox.isChecked() == true){
+
+            //get the id of the checkbox
             int resID = checkbox.getResources().getIdentifier(text, "id", getPackageName());
+
+            // change the visibility
             ImageView image = (ImageView) findViewById(resID);
             image.setVisibility(View.VISIBLE);
         }
         else{
+            //get the id of the checkbox
             int resID = checkbox.getResources().getIdentifier(text, "id", getPackageName());
+
+            // change the visibility
             ImageView image = (ImageView) findViewById(resID);
             image.setVisibility(View.INVISIBLE);
         }
